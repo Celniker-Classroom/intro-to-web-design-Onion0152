@@ -131,13 +131,29 @@ img {
 /* container for side-by-side images */
 .image-row {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 }
 .image-row img {
   display: block;
-  margin: 0; /* overridden by flex alignment */
+  margin: 0; /* handled by flex alignment */
+  max-width: calc(50% - 10px);
+  width: 400px;
+  border-radius: 16px;
+  object-fit: cover;
 }
+
+/* round all images site-wide */
+img {
+  border-radius: 12px;
+}
+
+/* keep sidebar images as full edge background shapes */
+.side-image {
+  border-radius: 0;
+}
+
 header{
 box-sizing: border-box;
 margin: 0;
