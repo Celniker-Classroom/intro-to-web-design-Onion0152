@@ -27,7 +27,16 @@ header{
 .logo{
     cursor:pointer;
 }
-.nav_links li{
+.nav_links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+ }
+
+ .nav_links li{
     display: inline-block;
     padding: 8px 20px;
  }
@@ -228,4 +237,65 @@ html {
     0% { background-color: rgba(173, 216, 230, 0.3); }
     50% { background-color: rgba(173, 216, 230, 0.1); }
     100% { background-color: transparent; }
+}
+
+/* Base link style (Light Blue as you had it) */
+a:link {
+    color: lightblue;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:visited {
+    color: #a7dcec; 
+}
+
+/* 2. Hover State: Glows white and adds an underline when mouse is over it */
+a:hover {
+    color: white;
+    text-decoration: underline;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* 3. Active State: A quick flash when the link is actually clicked */
+a:active {
+    color: #FFD700; /* Gold flash */
+
+.content-section:target {
+    animation: highlight-pulse 2s ease-out;
+}
+
+.content-section:target h3 {
+    color: #ADD8E6; 
+    text-shadow: 0 0 15px rgba(173, 216, 230, 0.8);
+    transform: scale(1.1);
+}
+
+@keyframes highlight-pulse {
+    0% { background-color: rgba(173, 216, 230, 0.3); }
+    100% { background-color: transparent; }
+}
+}
+/* --- 1. Rounding the Header --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%; /* Reduced padding slightly for better look */
+    background-color: rgb(89, 133, 197);
+    margin: 20px;       /* Adds space around the header */
+    border-radius: 50px; /* Makes the header a rounded rectangle */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+
+.rounded-img {
+    border-radius: 20px; /* Adjust this number for more or less roundness */
+    overflow: hidden;
+}
+
+/* Fix for your existing H3 CSS error */
+h3 {
+    text-align: center;
+    padding: 10px;
+    transition: all 0.3s ease;
 }
