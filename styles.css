@@ -1,7 +1,13 @@
 body {
-    background-color: rgba(158, 236, 238, 0.564);
-    color: darkslategrey
+    background-color: rgba(0, 19, 46, 0.726);
+    color: rgb(226, 231, 236);
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
  }
+a {
+    color: lightblue;
+}
 ol{
     color:rgb(156, 184, 255);
 }
@@ -12,17 +18,11 @@ padding: 0;
 background-color: cadetblue;
 }
 
-li,a,button {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-weight: 500;
-    font-size: 17px;
-    color:black
-}
 header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:30px 10%;
+    padding:50px 10%;
 }
 .logo{
     cursor:pointer;
@@ -51,6 +51,10 @@ header{
  }
  button:hover {
     background-color: rgba(0,136,169,0.8);
+ }
+
+ .cta {
+    margin-right: 20px;
  }
 
  #text1{
@@ -103,39 +107,117 @@ h2 {
   text-align: center;
 }
 
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-  color: darkslategrey;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
+/* center subheaders and paragraphs */
+h3, p {
   text-align: center;
 }
 
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #1769ec;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+/* center images horizontally */
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
+/* container for side-by-side images */
+.image-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.image-row img {
+  display: block;
+  margin: 0; /* overridden by flex alignment */
+}
+header{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+background-color: rgb(89, 133, 197);
+}
+.side-image {
+    position: fixed;   /* This keeps them from moving when you scroll */
+    top: 0;            /* Start at the very top */
+    height: 100vh;     /* Fill 100% of the screen height */
+    width: 200px;      /* Adjust this to make the sidebars wider or thinner */
+    object-fit: cover; /* This prevents the image from looking "squashed" */
+    z-index: -1;       /* This puts them BEHIND your text and main images */
+}
+
+.left-side {
+    left: 0;           /* Stick to the left edge */
+}
+
+.right-side {
+    right: 0;          /* Stick to the right edge */
+}
+/* .nav_links a:visited {
+    color: darkblue;
+}
+h3 {
+  /* This centers the text and provides a base for the box */
+  text-align: center;
+  padding: 10px;
+  transition: all 0.3s ease; /* Makes the color change smooth */
+  border: 2px solid transparent; /* Prevents layout jumping */
+}
+
+h3:hover, h3:focus {
+  background-color: #00008B; /* Dark Blue */
+  color: white;              /* Makes text readable on dark blue */
+  border: 2px solid white;   /* White border */
+  outline: none;             /* Removes default browser focus ring */
+}
+
+img {
+  transition: transform 0.3s ease; /* Makes the scaling smooth */
+  cursor: pointer;                /* Shows a hand icon on hover */
+  display: block;                 /* Helps with centering */
+  margin: 10px auto;              /* Centers the images horizontally */
+}
+
+img:hover {
+  transform: scale(1.2);          /* Increases size by 20% */
+  z-index: 10;                    /* Ensures the image stays on top of other elements */
+  position: relative;             /* Required for z-index to work */
+}
+/* 1. The Wrapper Box */
+.content-section {
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 15px;
+    transition: all 0.4s ease;
+    border: 2px solid transparent; /* Keeps layout stable */
+}
+
+/* 2. The "Pop Out" effect on hover */
+.content-section:hover {
+    background-color: rgba(255, 255, 255, 0.05); /* Subtle glow */
+    transform: scale(1.02); /* Slight lift */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(173, 216, 230, 0.3); /* Light blue border */
+}
+
+/* 3. The Navigation Highlight (:target) */
+/* This triggers when you click a link like #S */
+.content-section:target h3 {
+    color: #ffeb3b; /* Bright yellow/gold to grab attention */
+    text-shadow: 0 0 10px rgba(255, 235, 59, 0.7);
+    transform: scale(1.1);
+}
+
+/* Optional: Add a flash effect to the whole section when targeted */
+.content-section:target {
+    outline: 2px solid lightblue;
+    animation: highlight-fade 2s ease-out;
+}
+
+@keyframes highlight-fade {
+    0% { background-color: rgba(173, 216, 230, 0.2); }
+    100% { background-color: transparent; }
+}
+
+/* Ensure smooth scrolling so the jump isn't jarring */
+html {
+    scroll-behavior: smooth;
 }
