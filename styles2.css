@@ -1,0 +1,23 @@
+.side-image {
+    position: fixed;   /* This keeps them from moving when you scroll */
+    top: 0;            /* Start at the very top */
+    height: 100vh;     /* Fill 100% of the screen height */
+    width: 150px;      /* Adjust this to make the sidebars wider or thinner */
+    object-fit: cover; /* This prevents the image from looking "squashed" */
+    z-index: -1;       /* This puts them BEHIND your text and main images */
+}
+
+.left-side {
+    left: 0;           /* Stick to the left edge */
+}
+
+.right-side {
+    right: 0;          /* Stick to the right edge */
+}
+
+/* This hides the images on phones so they don't overlap your text */
+@media (max-width: 1100px) {
+    .side-image {
+        display: none;
+    }
+}
