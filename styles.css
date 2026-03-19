@@ -326,7 +326,23 @@ h3 {
 .side-image.right-side {
     float: right;
 }
-line-height
-font
-max-width
-max-width
+@media (max-width: 1200px) {
+  /* Styles for large screens */
+  body { font-size: 18px; }
+}
+
+@media (max-width: 900px) {
+  /* Styles for tablets */
+  body { font-size: 16px; }
+}
+
+@media (max-width: 600px) {
+  /* Styles for phones */
+  body { font-size: 14px; }
+}
+
+body {
+    /* ...existing styles... */
+    line-height: 1.6;
+    font: 400 18px/1.6 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
