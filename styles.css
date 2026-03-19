@@ -157,16 +157,9 @@ background-color: rgb(89, 133, 197);
 h3 {
   /* This centers the text and provides a base for the box */
   text-align: center;
-  padding: 10px;
+  { padding: 10px;
   transition: all 0.3s ease; /* Makes the color change smooth */
   border: 2px solid transparent; /* Prevents layout jumping */
-}
-
-h3:hover, h3:focus {
-  background-color: #00008B; /* Dark Blue */
-  color: white;              /* Makes text readable on dark blue */
-  border: 2px solid white;   /* White border */
-  outline: none;             /* Removes default browser focus ring */
 }
 
 img {
@@ -181,43 +174,58 @@ img:hover {
   z-index: 10;                    /* Ensures the image stays on top of other elements */
   position: relative;             /* Required for z-index to work */
 }
-/* 1. The Wrapper Box */
+
+/* Ensure side panels do not enlarge on hover and stay hidden on small screens */
+.side-image,
+.side-image img,
+.side-image:hover {
+  transform: none !important;
+  transition: none !important;
+  pointer-events: none !important;
+  z-index: -9999 !important;
+}
+
+@media (max-width: 900px) {
+  .side-image {
+    display: none !important;
+  }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 .content-section {
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 15px;
-    transition: all 0.4s ease;
-    border: 2px solid transparent; /* Keeps layout stable */
+    padding: 30px;
+    margin: 10px auto;
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Extra "springy" pop */
+    border: 2px solid transparent;
 }
 
-/* 2. The "Pop Out" effect on hover */
+/* pop */
 .content-section:hover {
-    background-color: rgba(255, 255, 255, 0.05); /* Subtle glow */
-    transform: scale(1.02); /* Slight lift */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(173, 216, 230, 0.3); /* Light blue border */
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: scale(1.03); /* Lifts the whole section */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(173, 216, 230, 0.2);
 }
 
-/* 3. The Navigation Highlight (:target) */
-/* This triggers when you click a link like #S */
+/* Highlight effect when navigating via Header links */
+.content-section:target {
+    animation: highlight-pulse 2s ease-out;
+}
+
+/* Highlight the H3 specifically when targeted */
 .content-section:target h3 {
-    color: #ffeb3b; /* Bright yellow/gold to grab attention */
-    text-shadow: 0 0 10px rgba(255, 235, 59, 0.7);
+    color: #ADD8E6; /* Light Blue */
+    text-shadow: 0 0 15px rgba(173, 216, 230, 0.8);
     transform: scale(1.1);
 }
 
-/* Optional: Add a flash effect to the whole section when targeted */
-.content-section:target {
-    outline: 2px solid lightblue;
-    animation: highlight-fade 2s ease-out;
-}
-
-@keyframes highlight-fade {
-    0% { background-color: rgba(173, 216, 230, 0.2); }
+/* Visual cue animation for the targeted section */
+@keyframes highlight-pulse {
+    0% { background-color: rgba(173, 216, 230, 0.3); }
+    50% { background-color: rgba(173, 216, 230, 0.1); }
     100% { background-color: transparent; }
-}
-
-/* Ensure smooth scrolling so the jump isn't jarring */
-html {
-    scroll-behavior: smooth;
 }
